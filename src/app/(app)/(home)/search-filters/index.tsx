@@ -1,8 +1,9 @@
+import { AnyMxRecord } from "dns";
 import { Categories } from "./categories";
 import { SearchInput } from "./search-input";
 
 interface Props{
-    data: any;
+    data: AnyMxRecord;
 }
 
 export const SearchFilter=({data}: Props)=> {

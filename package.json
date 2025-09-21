@@ -9,7 +9,8 @@
     "lint": "next lint",
     "generate:types": "payload generate:types",
     "generate:types:ts": "bun x tsx -r ./tsconfig.payload.json node_modules/.bin/payload generate:types",
-    "db:fresh": "bun x tsx -r ./tsconfig.payload.json node_modules/.bin/payload migrate:fresh"
+    "db:fresh": "bun x tsx -r ./tsconfig.payload.json node_modules/.bin/payload migrate:fresh",
+    "db:seed": "bun run src/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
