@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "ES2020",
+    "noEmit": true
+  },
+  "include": [
+    "src/payload.config.ts",
+    "src/collections/**/*.ts"
+  ]
+}
