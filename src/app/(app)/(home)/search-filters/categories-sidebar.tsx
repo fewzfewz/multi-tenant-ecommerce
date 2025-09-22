@@ -6,8 +6,10 @@ import { useRouter } from "next/navigation";
 import { useTRPC } from "@/trpc/client";
 import { useQuery } from "@tanstack/react-query";
 import { CategoriesGetManyOutput } from "@/modules/categories/types";
+import { CustomCategory } from "../types";
 
 interface Props{
+    // data: CustomCategory[];
     open: boolean;
     onOpenChange: (open: boolean)=> void;
 }
@@ -31,7 +33,7 @@ export const CategoriesSidebar=({ open, onOpenChange}: Props)=> {
 
     const handleCategoryClick=(category: CategoriesGetManyOutput[1])=>{
         if(category.subcategories && category.subcategories.length > 0){
-            setParentCategories(category.subcategories as CategoriesGetManyOutput)
+            setParentCategories(category.subcategories as CustomCategory[])
             setSelectedCategory(category)
         } else {
             if(parentCategories && selectedCategory){
