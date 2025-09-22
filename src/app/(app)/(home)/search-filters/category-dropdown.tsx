@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 import { useRef, useState } from "react";
 import { useDropdownPosition } from "./use-dropdown-position";
 import { SubcategoryMenu } from "./subcategory-menu";
-import { CustomCategory } from "../types";
 import Link from "next/link";
+import { CategoriesGetManyOutput } from "@/modules/categories/types";
 
 interface Props{
-    category: CustomCategory;
+    category: CategoriesGetManyOutput[1];
     isActive?: boolean;
     isNavigationHovered?: boolean;
 };
@@ -22,7 +22,7 @@ export const CategoryDropdown=({category, isActive, isNavigationHovered}: Props)
 
 
     const onMouseEnter= ()=>{
-        if(category.subcategories){
+        if(category.subcategories?.length >0){
             setIsOpen(true)
         }
     }
@@ -59,13 +59,13 @@ export const CategoryDropdown=({category, isActive, isNavigationHovered}: Props)
     </Link>
   </Button>
 
-  {category.subcategories && Array.isArray(category.subcategories.docs) && category.subcategories.docs.length > 0 && (
-    <SubcategoryMenu
-      category={category}
-      isOpen={isOpen}
-      position={dropdownPosition}
-    />
-  )}
+  {category.subcategories && Array.isArray(category.subcategories) && category.subcategories.length > 0 && (
+  <SubcategoryMenu
+    category={category}
+    isOpen={isOpen}
+    position={dropdownPosition}
+  />
+)}
 </div>
 
 )
