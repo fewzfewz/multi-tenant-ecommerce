@@ -22,6 +22,6 @@ export const categoriesRouter= createTRPCRouter({
                 }))
               }))
             
-        return formattedData
+    return  formattedData 
     })
-})
+}) 
